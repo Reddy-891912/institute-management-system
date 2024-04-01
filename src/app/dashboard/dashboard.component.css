@@ -1,0 +1,26 @@
+.parent {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    padding: 10px;
+    overflow: auto;
+}
+
+.left {
+    width: 20%;
+    height: auto;
+    background-color: aqua;
+    overflow: auto;
+    text-align: center;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+
+.right {
+    width: 75vw;
+    height: 100vh;
+    background-color: aqua;
+    overflow: auto;
+    border-radius: 15px;
+    margin-left: 20px;
+}
