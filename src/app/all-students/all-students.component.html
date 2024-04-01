@@ -1,22 +1,32 @@
 <div class="container table">
-    <div class="row">
+    <div class="row form-group">
         <div class="col sm-4">
             <label for="">Filter By</label>
             <input type="text" [(ngModel)]="studentFilter" (keypress)="filterStudentsData()">
         </div>
         <div class="col sm-4">
             <label for="">Pagination</label>
-           <select name="" id="" [(ngModel)]="studentsPageNo" (change)="getPagedStudentsData()">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>    
-           </select>
+            <select name="1" id="1" [(ngModel)]="studentsPageNo" (change)="getPagedStudentsData()">
+                <option value="1">Select Page</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
         </div>
         <div class="col sm-4">
-            <label for="">Sorting</label>
-            <input type="text">
+            <label for="">Columns</label>
+            <select name="" id="" [(ngModel)]="column">
+                <option value="name">Name</option>
+                <option value="district">District</option>
+                <option value="state">State</option>
+            </select>
+            <select name="" id="" [(ngModel)]="order">
+                <option value="name">ASC</option>
+                <option value="district">DESC</option>
+            </select>
+            <button type="button" class="btn btn-info" (click)="getSortedColumns()">Sort</button>
         </div>
     </div>
     <br>
@@ -33,7 +43,7 @@
                     <th>State</th>
                     <th>Company Name</th>
                     <th>Package</th>
-                    <th>Actions</th>
+                    <th colspan="2">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +58,8 @@
                     <td>{{student.company.name1}}</td>
                     <td>{{student.company.package}}</td>
                     <td><button type="button" class="btn btn-primary">Edit</button></td>
-                    <td><button type="button" class="btn btn-warning" (click)="deletedData(student.id)">Delete</button></td>
+                    <td><button type="button" class="btn btn-warning" (click)="deletedData(student.id)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

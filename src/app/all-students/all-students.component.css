@@ -1,6 +1,8 @@
 label{
     margin-top: 20px;
     width: 100px;
+    text-transform: uppercase;
+
 }
 
 .table{

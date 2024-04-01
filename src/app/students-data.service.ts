@@ -28,4 +28,8 @@ export class StudentsDataService {
   getPagedStudentsData(pageNo: number): Observable<any> {
     return this._httpClient.get("https://62abe711bd0e5d29af16f450.mockapi.io/Students?limit=5&page=" + pageNo)
   }
+
+  getSortedColumns(column: string, order: string): Observable<any> {
+    return this._httpClient.get("https://62abe711bd0e5d29af16f450.mockapi.io/Students?sortBy=" + column + "&order" + order);
+  }
 }

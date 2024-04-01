@@ -10,6 +10,8 @@ export class AllStudentsComponent {
 
   public studentFilter: string = '';
   public studentsPageNo: number = 0;
+  public column: string = "";
+  public order: string = "";
   public allStudents: any = [];
 
   constructor(private _studentsDataService: StudentsDataService) {
@@ -37,14 +39,25 @@ export class AllStudentsComponent {
 
   getPagedStudentsData() {
     this._studentsDataService.getPagedStudentsData(this.studentsPageNo).subscribe(
-      (data:any)=>{
-        this.allStudents=data;
+      (data: any) => {
+        this.allStudents = data;
       },
-      (err:any)=>{
+      (err: any) => {
         alert("Students Data Failed");
       }
     )
-   }
+  }
+
+  getSortedColumns() {
+    this._studentsDataService.getSortedColumns(this.column, this.order).subscribe(
+      (data: any) => {
+        this.allStudents = data;
+      },
+      (err: any) => {
+        alert("Sorted columns failed");
+      }
+    )
+  }
 
   deletedData(id: any) {
     this._studentsDataService.getDeleteData(id).subscribe(
