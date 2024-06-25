@@ -11,13 +11,10 @@
             <label for="">Gender :</label>
             <input type="radio" formControlName="gender" value="male">
             <div class="error" *ngIf="studentForm.get('gender')?.touched">
-                <p class="error" *ngIf="studentForm.get('gender')?.errors?.['required']">Gender is required</p>
+                <p class="error" *ngIf="studentForm.get('gender')?.errors?.['required']">Please select one option</p>
             </div>
             <label for="">Male</label>
             <input type="radio" formControlName="gender" value="female">
-            <div class="error" *ngIf="studentForm.get('gender')?.touched">
-                <p class="error" *ngIf="studentForm.get('gender')?.errors?.['required']">Name is required</p>
-            </div>
             <label for="">Female</label>
             <br>
             <label for="">Mobile :</label>
@@ -33,7 +30,8 @@
             <div *ngIf="studentForm.get('email')?.touched">
                 <p class="error" *ngIf="studentForm.get('email')?.errors?.['required']">Email is required</p>
                 <p class="error" *ngIf="studentForm.get('email')?.errors?.['email']">Invalid email</p>
-                <p class="error" *ngIf="studentForm.get('email')?.errors?.['mohithItEmail']">Only MohithIt Mail acceptable</p>
+                <p class="error" *ngIf="studentForm.get('email')?.errors?.['mohithItEmail']">Only MohithIt Mail
+                    acceptable</p>
             </div>
             <br>
             <label for="">Batch :</label>
@@ -126,25 +124,29 @@
                 <label for="">Name :</label>
                 <input type="text" formControlName="name1">
                 <div *ngIf="studentForm.get('company')?.get('name1')?.touched">
-                    <p class="error" *ngIf="studentForm.get('company')?.get('name1')?.errors?.['required']">Name filed is required</p>
+                    <p class="error" *ngIf="studentForm.get('company')?.get('name1')?.errors?.['required']">Name filed
+                        is required</p>
                 </div>
                 <br>
                 <label for="">Location :</label>
                 <input type="text" formControlName="location">
                 <div *ngIf="studentForm.get('company')?.get('location')?.touched">
-                    <p class="error" *ngIf="studentForm.get('company')?.get('location')?.errors?.['required']">Please enter you location name</p>
+                    <p class="error" *ngIf="studentForm.get('company')?.get('location')?.errors?.['required']">Please
+                        enter you location name</p>
                 </div>
                 <br>
                 <label for="">Package :</label>
                 <input type="number" formControlName="package">
                 <div *ngIf="studentForm.get('company')?.get('package')?.touched">
-                    <p class="error" *ngIf="studentForm.get('company')?.get('package')?.errors?.['required']">Package filed is required</p>
+                    <p class="error" *ngIf="studentForm.get('company')?.get('package')?.errors?.['required']">Package
+                        filed is required</p>
                 </div>
                 <br>
                 <label for="">Offer Date :</label>
                 <input type="date" formControlName="offerDate">
                 <div *ngIf="studentForm.get('company')?.get('offerDate')?.touched">
-                    <p class="error" *ngIf="studentForm.get('company')?.get('offerDate')?.errors?.['required']">Date filed is required</p>
+                    <p class="error" *ngIf="studentForm.get('company')?.get('offerDate')?.errors?.['required']">Date
+                        filed is required</p>
                 </div>
                 <br>
             </div>
@@ -153,6 +155,10 @@
                 <label for="">Source Type :</label>
                 <input type="radio" formControlName="sourceType" value="direct">
                 <label for=""> Direct</label>
+                <div *ngIf="studentForm.get('sourceType')?.touched">
+                    <p class="error" *ngIf="studentForm.get('sourceType')?.errors?.['required']">Please select any one
+                        option</p>
+                </div>
                 <input type="radio" formControlName="sourceType" value="refer">
                 <label for="">Refer</label>
                 <br>
@@ -169,7 +175,11 @@
                     <br>
                 </div>
             </div>
-            <button type="button" [disabled]="studentForm.invalid" class="btn btn-success mt-5" (click)="submit()">Submit</button>
+            <button type="button" [disabled]="studentForm.invalid" class="btn btn-success mt-5"
+                (click)="submit()">Submit</button>
         </div>
     </form>
 </div>
+
+
+<!-- [disabled]="studentForm.invalid" -->

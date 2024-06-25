@@ -1,67 +1,78 @@
-<div class="container table">
-    <div class="row form-group">
-        <div class="col sm-4">
-            <label for="">Filter By</label>
-            <input type="text" [(ngModel)]="studentFilter" (keypress)="filterStudentsData()">
+<div class="container">
+    <div class="row form-group gy-2 gx-3 align-items-center mt-4">
+        <div class="col-auto">
+            <div class="input-group">
+                <label for="studentFilter" class="form-label">Filter By</label>
+                <input type="text" class="form-control" [(ngModel)]="studentFilter" (keypress)="filterStudentsData()"
+                    name="studentFilter">
+            </div>
         </div>
-        <div class="col sm-4">
-            <label for="">Pagination</label>
-            <select name="1" id="1" [(ngModel)]="studentsPageNo" (change)="getPagedStudentsData()">
-                <option value="1">Select Page</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
+        <div class="col-auto">
+            <div class="input-group">
+                <label for="studentsPageNo" class="form-label">Pagination</label>
+                <select name="studentsPageNo" id="studentsPageNo" class="form-select" [(ngModel)]="studentsPageNo"
+                    (change)="getPagedStudentsData()">
+                    <option>Select Page</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
         </div>
-        <div class="col sm-4">
-            <label for="">Columns</label>
-            <select name="" id="" [(ngModel)]="column">
-                <option value="name">Name</option>
-                <option value="district">District</option>
-                <option value="state">State</option>
-            </select>
-            <select name="" id="" [(ngModel)]="order">
-                <option value="name">ASC</option>
-                <option value="district">DESC</option>
-            </select>
-            <button type="button" class="btn btn-info" (click)="getSortedColumns()">Sort</button>
+        <div class="col-auto">
+            <div class="input-group">
+                <label for="" class="form-label">Columns</label>
+                <select name="column" id="column" [(ngModel)]="column" class="form-select">
+                    <option value="name" selected>Name</option>
+                    <option value="district">District</option>
+                    <option value="state">State</option>
+                </select>
+                <select name="order" id="order" [(ngModel)]="order" class="form-select">
+                    <option value="name" selected>ASC</option>
+                    <option value="district">DESC</option>
+                </select>
+                <button type="button" class="btn btn-info" (click)="getSortedColumns()">Sort</button>
+            </div>
         </div>
-    </div>
-    <br>
-    <div class="row">
-        <table class="table table-borderd table-dark">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Gender</th>
-                    <th>Phone</th>
-                    <th>Batch</th>
-                    <th>District</th>
-                    <th>State</th>
-                    <th>Company Name</th>
-                    <th>Package</th>
-                    <th colspan="2">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let student of allStudents">
-                    <td>{{student.id}}</td>
-                    <td>{{student.name}}</td>
-                    <td>{{student.gender}}</td>
-                    <td>{{student.mobile}}</td>
-                    <td>{{student.batch}}</td>
-                    <td>{{student.address.district}}</td>
-                    <td>{{student.address.state}}</td>
-                    <td>{{student.company.name1}}</td>
-                    <td>{{student.company.package}}</td>
-                    <td><button type="button" class="btn btn-primary">Edit</button></td>
-                    <td><button type="button" class="btn btn-warning" (click)="deletedData(student.id)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <br>
+        <div class="row">
+            <table class="table table-borderd table-dark mt-3">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th>Batch</th>
+                        <th>District</th>
+                        <th>State</th>
+                        <th>Company Name</th>
+                        <th>Package</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of allStudents">
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.gender}}</td>
+                        <td>{{student.mobile}}</td>
+                        <td>{{student.batch}}</td>
+                        <td>{{student.address.district}}</td>
+                        <td>{{student.address.state}}</td>
+                        <td>{{student.company.name1}}</td>
+                        <td>{{student.company.package}}</td>
+                        <td><button type="button" class="btn btn-primary">View</button></td>
+                        <td><button type="button" class="btn btn-warning">Edit</button>
+                        </td>
+                        <td><button type="button" class="btn btn-warning"
+                                (click)="deletedData(student.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

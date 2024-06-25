@@ -62,11 +62,11 @@ export class AllStudentsComponent {
   deletedData(id: any) {
     this._studentsDataService.getDeleteData(id).subscribe(
       (data: any) => {
-        alert("Successfully row deleted");
+        alert("Successfully deleted");
         location.reload();
       },
       (err: any) => {
-        alert("Delete Failed");
+        alert("Delete failed");
       }
     )
   }

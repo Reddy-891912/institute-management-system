@@ -9,32 +9,32 @@ import { mohithItEmail } from './email.validator';
   styleUrls: ['./create-student.component.css']
 })
 export class CreateStudentComponent {
-  public studentsData:any=[];
+  public studentsData: any = [];
 
   public studentForm: FormGroup = new FormGroup({
-    name: new FormControl(null,[Validators.required]),
-    gender: new FormControl(null,[Validators.required]),
-    mobile: new FormControl(null,[Validators.required,Validators.min(1000000000),Validators.max(9999999999)]),
-    email: new FormControl(null,[Validators.required,Validators.email,mohithItEmail]),
-    batch: new FormControl(null,[Validators.required]),
+    name: new FormControl(null, [Validators.required]),
+    gender: new FormControl(null, [Validators.required]),
+    mobile: new FormControl(null, [Validators.required, Validators.min(1000000000), Validators.max(9999999999)]),
+    email: new FormControl(null, [Validators.required, Validators.email, mohithItEmail]),
+    batch: new FormControl(null, [Validators.required]),
     address: new FormGroup({
-      city: new FormControl(null,[Validators.required]),
-      mandal: new FormControl(null,[Validators.required]),
-      district: new FormControl(null,[Validators.required]),
-      state: new FormControl(null,[Validators.required]),
-      pincode: new FormControl(null,[Validators.required,Validators.min(100000),Validators.max(999999)]),
+      city: new FormControl(null, [Validators.required]),
+      mandal: new FormControl(null, [Validators.required]),
+      district: new FormControl(null, [Validators.required]),
+      state: new FormControl(null, [Validators.required]),
+      pincode: new FormControl(null, [Validators.required, Validators.min(100000), Validators.max(999999)]),
     }),
     education: new FormArray([]),
     company: new FormGroup({
-      name1: new FormControl(null,[Validators.required]),
-      location: new FormControl(null,[Validators.required]),
-      package: new FormControl(null,[Validators.required]),
-      offerDate: new FormControl(null,[Validators.required])
+      name1: new FormControl(null, [Validators.required]),
+      location: new FormControl(null, [Validators.required]),
+      package: new FormControl(null, [Validators.required]),
+      offerDate: new FormControl(null, [Validators.required])
     }),
-    sourceType: new FormControl(),
+    sourceType: new FormControl(null, [Validators.required]),
   })
 
-  constructor(private _studentsDataService:StudentsDataService) {
+  constructor(private _studentsDataService: StudentsDataService) {
     this.studentForm.get('sourceType')?.valueChanges.subscribe(
       (data: any) => {
         if (data == 'direct') {
@@ -61,8 +61,8 @@ export class CreateStudentComponent {
     this.educationFormArray.push(
       new FormGroup({
         qualification: new FormControl(null, [Validators.required]),
-        year: new FormControl(null,[Validators.required]),
-        percentage: new FormControl(null,[Validators.required])
+        year: new FormControl(null, [Validators.required]),
+        percentage: new FormControl(null, [Validators.required])
       })
     )
   }
@@ -76,12 +76,12 @@ export class CreateStudentComponent {
     // console.log(this.studentForm.value);
     // this.studentForm.markAllAsTouched();
     this._studentsDataService.studentForm(this.studentForm.value).subscribe(
-      (data:any)=>{
+      (data: any) => {
         alert("Successfully Student Form Created");
         // after create the student form refresh the page
         this.studentForm.reset();
       },
-      (err:any)=>{
+      (err: any) => {
         alert("Student Form Creation Failed");
       }
     )
