@@ -3,15 +3,15 @@ label {
     width: 100px;
 }
 
-form{
+form {
     display: flex;
     justify-content: flex-start;
 }
 
-h3{
+h3 {
     color: red;
 }
 
-.error{
+.error {
     color: red;
 }
